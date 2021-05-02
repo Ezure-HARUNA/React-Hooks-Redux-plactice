@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 
-const App = () => {
-  const [count, setCount] = useState(0);
-  const devide3 = () =>
-    setCount((previousCount) => {
-      return previousCount % 3 === 0 ? previousCount / 3 : previousCount;
-    });
-
+const App = (props) => {
+  const [name, setName] = useState("サンプル");
+  const [price, setPrice] = useState(1000);
   return (
     <div>
-      <div>count: {count}</div>
-      <button onClick={() => setCount(count + 1)}>+1</button>
-      <button onClick={() => setCount(count - 1)}>-1</button>
-      <button onClick={() => setCount(0)}>reset</button>
-      <button onClick={devide3}>devide3</button>
+      <p>
+        現在の{name}は、{price}円です。
+      </p>
+      <button onClick={() => setPrice(price + 1)}>+1</button>
+      <button onClick={() => setPrice(price - 1)}>-1</button>
+      <button onClick={() => setPrice(1000)}>reset</button>
+      <input value={name} onChange={(e) => setName(e.target.value)} />
     </div>
   );
 };
